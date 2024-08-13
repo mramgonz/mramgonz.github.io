@@ -16,7 +16,7 @@ timezone:
 
 title: RumaMR9 # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: Cybersecurity Analyst | Web Developer | Junior Pentester # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -26,7 +26,7 @@ description: >- # used by seo meta and the atom feed
 url: ""
 
 github:
-  username: github_username # change to your github username
+  username: https://github.com/RumaMR9 # change to your github username
 
 twitter:
   username: twitter_username # change to your twitter username
