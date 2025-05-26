@@ -12,7 +12,7 @@ Oracle APEX está diseñado para ser extremadamente flexible y portable, lo que 
 
 ## 📍 **Lugares donde podés desplegar APEX**:
 
-1. **Oracle Cloud (OCI)** – recomendado
+1- **Oracle Cloud (OCI)** – recomendado
 
 - A través del servicio APEX Application Development Service.
 
@@ -22,19 +22,19 @@ Oracle APEX está diseñado para ser extremadamente flexible y portable, lo que 
 
 - Ideal para desarrollo profesional, sin configurar nada.
 
-2. **On-Premises**
+2- **On-Premises**
 
 - Podés instalar Oracle Database y APEX en tu propio servidor o VM.
 
 - Usado en empresas con entornos cerrados o regulaciones específicas.
 
-3. **Nubes de terceros (AWS, Azure, GCP)**
+3- **Nubes de terceros (AWS, Azure, GCP)**
 
 - Instalás Oracle DB + APEX manualmente.
 
 - Requiere más configuración, pero funciona perfectamente.
 
-4. **Dedicated Region**
+4- **Dedicated Region**
 
 - Oracle instala una región completa de su nube en tu datacenter.
 
@@ -58,13 +58,13 @@ Oracle APEX tiene una arquitectura muy eficiente y fácil de entender porque tod
 
 ## 🧩 **Componentes clave**:
 
-1. **Navegador**
+1- **Navegador**
 
 - El usuario accede vía web (PC, móvil, tablet).
 
 - No se necesita cliente ni instalación.
 
-2. **ORDS (Oracle REST Data Services)**
+2- **ORDS (Oracle REST Data Services)**
 
 - Middleware liviano que traduce las peticiones HTTP en llamadas SQL/PLSQL.
 
@@ -72,7 +72,7 @@ Oracle APEX tiene una arquitectura muy eficiente y fácil de entender porque tod
 
 - Puede correr como servicio separado (Tomcat, Standalone, etc.).
 
-3. **Oracle Database + APEX Engine**
+3- **Oracle Database + APEX Engine**
 
 - Aquí está toda la lógica de la aplicación.
 
