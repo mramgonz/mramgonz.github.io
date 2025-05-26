@@ -6,8 +6,6 @@ tags: [Oracle APEX, Low Code]
 image: images/Desarrollo-Full-Stack/Oracle/APEX/availability-architecture.jpg
 ---
 
-Si estás aprendiendo Oracle APEX con vistas a trabajar profesionalmente, uno de los temas clave que tenés que dominar es su disponibilidad y arquitectura. En esta entrada te explico exactamente eso: dónde puede ejecutarse APEX, cómo se conecta, qué componentes lo forman y cómo fluye todo internamente.
-
 ## 🌐 **Disponibilidad de Oracle APEX**
 
 Oracle APEX está diseñado para ser extremadamente flexible y portable, lo que significa que podés ejecutarlo prácticamente en cualquier lugar donde exista una Oracle Database. Esa es la base de todo.
