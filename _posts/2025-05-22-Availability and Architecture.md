@@ -6,99 +6,96 @@ tags: [Oracle APEX, Low Code]
 image: images/Desarrollo-Full-Stack/Oracle/APEX/availability-architecture.jpg
 ---
 
-En esta entrada quiero compartir un resumen claro y práctico sobre la disponibilidad, arquitectura y capacidades de despliegue de Oracle APEX, especialmente cuando se combina con Oracle Autonomous Database. Si estás empezando o quieres entender mejor cómo funciona todo esto, esta guía te va a venir genial.
+Si estás aprendiendo Oracle APEX con vistas a trabajar profesionalmente, uno de los temas clave que tenés que dominar es su disponibilidad y arquitectura. En esta entrada te explico exactamente eso: dónde puede ejecutarse APEX, cómo se conecta, qué componentes lo forman y cómo fluye todo internamente.
 
-📍 Disponibilidad de Oracle APEX
-Una de las cosas que más me gusta de Oracle APEX es que está disponible donde sea que puedas ejecutar Oracle Database. Literalmente:
+## 🌐 **Disponibilidad de Oracle APEX**
 
-En la nube de Oracle (OCI), que es lo más recomendable.
+Oracle APEX está diseñado para ser extremadamente flexible y portable, lo que significa que podés ejecutarlo prácticamente en cualquier lugar donde exista una Oracle Database. Esa es la base de todo.
 
-En tus propios servidores on-premises.
+## 📍 **Lugares donde podés desplegar APEX**:
 
-En nubes de terceros como AWS, Azure o Google Cloud.
+1. **Oracle Cloud (OCI)** – recomendado
 
-Incluso en una región dedicada (sí, Oracle instala su nube completa en tu centro de datos si lo necesitas).
+- A través del servicio APEX Application Development Service.
 
-Además, viene incluido sin coste adicional en la base de datos Oracle y puedes usarlo con el plan gratuito de Oracle Cloud. Ideal para aprender o hacer pruebas reales sin gastar nada.
+- Totalmente gestionado por Oracle.
 
-🔥 APEX + Autonomous Database: Combinación ganadora
-Cuando usas APEX junto a una Autonomous Database, te olvidas de muchas tareas aburridas: parches, seguridad, backups, optimización… todo se hace solo.
+- Incluye plan gratuito (Always Free Tier).
 
-Esto te deja enfocarte 100% en construir tu aplicación.
+- Ideal para desarrollo profesional, sin configurar nada.
 
-Y lo mejor: puedes elegir entre varios tipos de base de datos, según lo que necesites:
+2. **On-Premises**
 
-Transaction Processing – Para apps tipo ERP o CRM.
+- Podés instalar Oracle Database y APEX en tu propio servidor o VM.
 
-Data Warehouse – Si vas por análisis de datos o dashboards.
+- Usado en empresas con entornos cerrados o regulaciones específicas.
 
-JSON Database – Si trabajas con datos semiestructurados.
+3. **Nubes de terceros (AWS, Azure, GCP)**
 
-APEX Service – El más simple y directo para desarrollo web.
+- Instalás Oracle DB + APEX manualmente.
 
-🧩 ¿Qué es el APEX Application Development Service?
-Este servicio de Oracle es lo más directo que hay para empezar a desarrollar con APEX en la nube. Ya viene con todo:
+- Requiere más configuración, pero funciona perfectamente.
 
-Editor visual APEX
+4. **Dedicated Region**
 
-Base de datos autónoma
+- Oracle instala una región completa de su nube en tu datacenter.
 
-Infraestructura de alto rendimiento
+- Pensado para bancos, gobiernos o empresas con requisitos extremos de seguridad.
 
-Lo uso personalmente cuando quiero desarrollar rápido, sin complicarme con configuración ni mantenimiento.
+🔸 **Conclusión**: APEX es portátil. No estás atado a un proveedor específico, pero Oracle Cloud es el camino más rápido y simple.
 
-Ventajas que destaco:
-Sin pagar por usuarios o apps.
+## 🧱 **Arquitectura de Oracle APEX (simplificada)**
 
-APIs REST listas con ORDS.
+Oracle APEX tiene una arquitectura muy eficiente y fácil de entender porque todo sucede dentro de la base de datos Oracle. Eso le da muchas ventajas: rendimiento, seguridad y simplicidad.
 
-Seguridad, rendimiento y backups gestionados por Oracle.
-
-Puedes empezar gratis con el plan Always Free.
-
-⚙️ Arquitectura de Oracle APEX (súper simplificada)
-Una de las razones por las que APEX funciona tan bien es su arquitectura directa:
+## 🔄 **Flujo de arquitectura**:
 
 ```plaintext
 [ Navegador del usuario ]
         ↓ HTTPS
-[ ORDS (REST Data Services) ]
-        ↓ llamadas SQL/PLSQL
-[ Oracle Database + Motor APEX ]
+[ ORDS - Oracle REST Data Services ]
+        ↓
+[ Oracle Database con APEX ]
 ```
 
-Todo pasa en la base de datos. No necesitas middleware complicado, servidores intermedios ni capas innecesarias. Esto significa menos fallos, más seguridad y mejor rendimiento.
+## 🧩 **Componentes clave**:
 
-🛠 Opciones de despliegue
-Una vez terminada tu app, puedes publicarla en varios entornos:
+1. **Navegador**
 
-Oracle Cloud (OCI) – Mi recomendación: más simple, escalable y económica.
+- El usuario accede vía web (PC, móvil, tablet).
 
-Dedicated Region – Para gobiernos o bancos que necesitan tener todo in-house.
+- No se necesita cliente ni instalación.
 
-Terceras nubes (AWS, Azure, GCP) – También es posible, aunque requiere más configuración.
+2. **ORDS (Oracle REST Data Services)**
 
-On-Premises – Si tienes tus propios servidores y políticas internas.
+- Middleware liviano que traduce las peticiones HTTP en llamadas SQL/PLSQL.
 
-Hay libertad total para elegir según tus necesidades y presupuesto.
+- Expone APIs REST, maneja sesiones, y entrega páginas APEX.
 
-⚡ Desarrollo rápido y sin dolor
-Lo que realmente hace que APEX brille es la velocidad de desarrollo. Tiene todo listo:
+- Puede correr como servicio separado (Tomcat, Standalone, etc.).
 
-Seguridad y autenticación integradas.
+3. **Oracle Database + APEX Engine**
 
-Formularios, reportes, validaciones ya preconstruidas.
+- Aquí está toda la lógica de la aplicación.
 
-Conexión directa a la base de datos.
+- APEX vive como un componente PL/SQL dentro de Oracle DB.
 
-Control de sesiones, APIs REST, y más.
+- Procesa datos, ejecuta la lógica, genera HTML dinámico.
 
-El flujo típico que yo sigo es:
-Desarrollar – Uso asistentes y plantillas para generar interfaces.
+- Alta seguridad, integridad y rendimiento nativo.
 
-Personalizar – Ajusto reglas, diseño y lógica con PL/SQL o JS si hace falta.
+## 🚀 **¿Por qué esta arquitectura es tan buena?**
 
-Entregar – Publico la app y ya está lista para usarse.
+- No hay capas intermedias innecesarias (como ORMs o servidores de aplicaciones).
 
-🎯 Conclusión personal
-Si buscas una plataforma low-code que te permita desarrollar rápido, con seguridad, sin costos escondidos y sin preocuparte por la infraestructura, Oracle APEX con Autonomous Database es una excelente opción. Y si eres desarrollador como yo, vas a agradecer la flexibilidad que te da.
+- Todo se ejecuta en la base de datos → más rendimiento, menos latencia.
+
+- Escalable y segura por diseño (usando roles, privilegios y cifrado nativo).
+
+- Fácil de mantener, migrar o desplegar en múltiples entornos.
+
+## 🎯 **Conclusión**
+
+Si vas a trabajar con Oracle APEX, entender su disponibilidad y arquitectura es clave para tomar buenas decisiones de despliegue y mantenimiento. Saber que podés correrlo en OCI, localmente o incluso en nubes como AWS, y que todo fluye sin necesidad de frameworks pesados, es lo que hace que APEX sea tan poderoso.
+
+Ahora ya tenés la base técnica clara. Desde acá podés seguir explorando cómo configurar ORDS, desplegar en producción, o trabajar con APIs REST sobre esta misma arquitectura.
